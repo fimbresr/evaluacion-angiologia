@@ -303,9 +303,39 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 });
 
 // ===================== SALIR =====================
+const INSTAGRAM_URL = 'https://www.instagram.com/hospitalsandiegodealcala/?hl=es';
+let redirectTimer = null;
+let countdownInterval = null;
+
 document.getElementById('btn-exit').addEventListener('click', () => {
-  // Redirigir a Instagram del Hospital San Diego de Alcalá
-  window.location.href = 'https://www.instagram.com/hospitalsandiegodealcala/?hl=es';
+  // Mostrar pantalla de despedida
+  showSection('goodbye');
+
+  // Countdown de 5 segundos
+  let seconds = 5;
+  const countdownEl = document.getElementById('countdown');
+  if (countdownEl) countdownEl.textContent = seconds;
+
+  countdownInterval = setInterval(() => {
+    seconds--;
+    if (countdownEl) countdownEl.textContent = seconds;
+    if (seconds <= 0) clearInterval(countdownInterval);
+  }, 1000);
+
+  // Después de 5 segundos, redirigir a Instagram
+  redirectTimer = setTimeout(() => {
+    window.location.href = INSTAGRAM_URL;
+  }, 5000);
+});
+
+// Cancelar redirección si el usuario quiere quedarse
+document.getElementById('btn-cancel-redirect')?.addEventListener('click', () => {
+  if (redirectTimer) { clearTimeout(redirectTimer); redirectTimer = null; }
+  if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+  const counter = document.querySelector('.goodbye-counter');
+  if (counter) counter.style.display = 'none';
+  document.getElementById('btn-cancel-redirect').textContent = 'Cerrar ventana';
+  document.getElementById('btn-cancel-redirect').onclick = () => window.close();
 });
 
 // ===================== CERRAR PESTAÑA =====================

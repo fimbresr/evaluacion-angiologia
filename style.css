@@ -1336,6 +1336,33 @@ input[type="email"]::placeholder {
   border-radius: var(--radio-sm);
   display: inline-block;
 }
+
+.goodbye-counter {
+  font-size: 0.85rem;
+  color: var(--azul-medio);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.goodbye-counter span {
+  display: inline-block;
+  background: var(--azul-medio);
+  color: white;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  font-weight: 800;
+  margin: 0 0.15rem;
+  font-size: 0.85rem;
+}
+
+.instagram-btn {
+  text-decoration: none;
+  display: inline-flex;
+  margin-bottom: 0.75rem;
+}
 @media print {
   body { background: #fff; }
   body::before { display: none; }
