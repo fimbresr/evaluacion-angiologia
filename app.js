@@ -304,9 +304,8 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 
 // ===================== SALIR =====================
 document.getElementById('btn-exit').addEventListener('click', () => {
-  // Los datos ya se enviaron al mostrar el resultado.
-  // Solo mostrar la pantalla de despedida.
-  showSection('goodbye');
+  // Redirigir a Instagram del Hospital San Diego de Alcalá
+  window.location.href = 'https://www.instagram.com/hospitalsandiegodealcala/?hl=es';
 });
 
 // ===================== CERRAR PESTAÑA =====================
