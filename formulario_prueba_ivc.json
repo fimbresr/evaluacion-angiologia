@@ -1,0 +1,63 @@
+{
+  "titulo": "¿Necesito una prueba de IVC?",
+  "descripcion": "La Insuficiencia Venosa Crónica (IVC) es un problema circulatorio grave en el cual las venas de las piernas no pueden bombear suficiente sangre de regreso al corazón. Afecta a más de 65 millones de mexicanos, es decir que 7 de cada 10 adultos padecen esta enfermedad, la mayoría mayores de 40 años. Los síntomas de la IVC incluyen várices, problemas en la piel, hinchazón de piernas y tobillos, pantorrillas tensas y piernas que se sienten pesadas, cansadas, inquietas o con dolor. Los factores que pueden aumentar el riesgo de IVC incluyen el embarazo, la obesidad, el tabaquismo, estar de pie o sentado por largos periodos de tiempo y no hacer suficiente ejercicio. Las respuestas a estas preguntas determinarán si usted está en riesgo de padecer IVC y si un examen vascular nos ayudará a evaluar mejor su estado de salud vascular.",
+  "campos_paciente": {
+    "nombre": "",
+    "fecha": ""
+  },
+  "instrucciones": "Ponga una Palomita “Sí” o “No”.",
+  "preguntas": [
+    {
+      "id": 1,
+      "pregunta": "¿Tiene las piernas hinchadas, con dolor, rojas o calientes al tacto?",
+      "respuesta": null
+    },
+    {
+      "id": 2,
+      "pregunta": "¿Ha tenido algún coágulo de sangre en una vena que le haya causado inflamación, dolor o irritación?",
+      "respuesta": null
+    },
+    {
+      "id": 3,
+      "pregunta": "¿Tiene várices, venas ensanchadas o hinchadas que sobresalen de la superficie de la piel, en las piernas?",
+      "respuesta": null
+    },
+    {
+      "id": 4,
+      "pregunta": "¿Ha tenido una Trombosis Venosa Profunda (TVP) en el pasado y presenta dolor, hinchazón, cambios en el color de la piel, celulitis o úlceras que no sanan?",
+      "respuesta": null
+    },
+    {
+      "id": 5,
+      "pregunta": "¿Siente las piernas pesadas, cansadas, inquietas o con dolor?",
+      "respuesta": null
+    },
+    {
+      "id": 6,
+      "pregunta": "Si presiona su pie, tobillo o pierna hinchada por 10 segundos y suelta, ¿su huella deja un hundimiento o marca?",
+      "respuesta": null
+    },
+    {
+      "id": 7,
+      "pregunta": "Si sus pies, tobillos y piernas están hinchados, ¿la piel se ve estirada o brillosa?",
+      "respuesta": null
+    },
+    {
+      "id": 8,
+      "pregunta": "¿Tiene alguna úlcera en la parte interna del tobillo?",
+      "respuesta": null
+    }
+  ],
+  "opciones_respuesta": [
+    "Si",
+    "No"
+  ],
+  "firma": {
+    "medicos": [
+      "Dr. Iván Romero García",
+      "Dr. Abraham Zúñiga"
+    ],
+    "especialidad": "Angiología y Cirugía Vascular",
+    "clinica": "Endo 360"
+  }
+}

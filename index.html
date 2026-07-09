@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Necesito una prueba de IVC? — Hospital San Diego de Alcalá</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER GLOBAL HSDA -->
+  <header class="site-header">
+    <div class="header-container">
+      <img src="logo-hsda.png" alt="Hospital San Diego de Alcalá" class="header-logo">
+      <img src="logo endo360.png" alt="Endo 360" class="header-endo-logo">
+    </div>
+  </header>
+
+  <!-- ===================== SECCIÓN 1: INFORMACIÓN ===================== -->
+  <section id="info" class="section active">
+    <div class="container">
+
+      <div class="hero">
+        <p class="hero-eyebrow">Angiología y Cirugía Vascular · Endo 360</p>
+        <h1>¿Necesito una prueba de Insuficiencia Venosa Crónica?</h1>
+      </div>
+
+      <div class="card card-ivc">
+        <div class="card-ivc-bg"></div>
+        <div class="card-ivc-content">
+          <h2>¿Qué es la Insuficiencia Venosa Crónica (IVC)?</h2>
+          <p>
+            La IVC es un problema circulatorio grave en el cual las venas de las piernas
+            no pueden bombear suficiente sangre de regreso al corazón. Afecta a
+            <strong>más de 65 millones de mexicanos</strong>: 7 de cada 10 adultos padecen
+            esta enfermedad, la mayoría mayores de 40 años.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h2>Síntomas comunes</h2>
+          <ul>
+            <li>Várices y venas visibles</li>
+            <li>Hinchazón de piernas y tobillos</li>
+            <li>Piernas pesadas, cansadas o inquietas</li>
+            <li>Pantorrillas tensas</li>
+            <li>Úlceras que no sanan</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>Factores de riesgo</h2>
+          <ul>
+            <li>Embarazo</li>
+            <li>Obesidad</li>
+            <li>Tabaquismo</li>
+            <li>Estar de pie o sentado por largos periodos</li>
+            <li>Falta de ejercicio</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>¿En qué consiste el estudio?</h2>
+        <p>
+          Un <strong>examen vascular</strong> permite evaluar el estado de salud de las
+          venas de sus piernas. Es un procedimiento no invasivo que ayuda a determinar
+          si usted padece IVC y qué tratamiento es el más adecuado.
+        </p>
+      </div>
+
+      <div class="doctors-grid">
+        <div class="doctor-card">
+          <p class="doctor-card-label">Especialista</p>
+          <p class="doctor-card-name">Dr. Iván<br>Romero García</p>
+        </div>
+        <div class="doctor-card">
+          <p class="doctor-card-label">Especialista</p>
+          <p class="doctor-card-name">Dr. Abraham<br>Zúñiga</p>
+        </div>
+      </div>
+
+      <div class="specialty-card">
+        <img src="logo endo360.png" alt="Endo 360" class="specialty-logo">
+        <p>Angiología y Cirugía Vascular</p>
+        <p>Cirugía Endovascular</p>
+      </div>
+
+      <div class="cta-container">
+        <p class="cta-text">¿Deseas saber si eres candidato para una prueba vascular?</p>
+        <button id="btn-start" class="btn-primary">Realizar el test</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECCIÓN 2: DATOS DEL PACIENTE ===================== -->
+  <section id="patient" class="section">
+    <div class="container">
+      <h1>Datos del paciente</h1>
+      <div class="card">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Escriba su nombre completo" required>
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" required>
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" placeholder="Empresa donde labora (opcional)">
+        <label for="telefono">Número de teléfono</label>
+        <input type="tel" id="telefono" placeholder="10 dígitos" pattern="[0-9]{10}" maxlength="10">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" placeholder="ejemplo@correo.com">
+      </div>
+      <div class="nav-buttons">
+        <button id="btn-back-patient" class="btn-secondary">Regresar</button>
+        <button id="btn-start-test" class="btn-primary">Comenzar cuestionario</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECCIÓN 3: CUESTIONARIO ===================== -->
+  <section id="quiz" class="section">
+    <div class="container">
+      <h1>Cuestionario de IVC</h1>
+      <p class="instructions">Ponga una Palomita "Sí" o "No".</p>
+
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <p id="progress-text">Pregunta 1 de 8</p>
+
+      <div id="question-container">
+        <!-- Se llena dinámicamente -->
+      </div>
+
+      <div class="nav-buttons">
+        <button id="btn-prev" class="btn-secondary" disabled>Anterior</button>
+        <button id="btn-next" class="btn-primary">Siguiente</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECCIÓN 4: RESULTADO ===================== -->
+  <section id="result" class="section">
+    <div class="container">
+      <h1>Resultado</h1>
+
+      <div class="patient-info">
+        <p><strong>Paciente:</strong> <span id="patient-name-display"></span></p>
+        <p><strong>Fecha:</strong> <span id="patient-date-display"></span></p>
+        <p><strong>Empresa:</strong> <span id="patient-empresa-display"></span></p>
+        <p><strong>Teléfono:</strong> <span id="patient-telefono-display"></span></p>
+        <p><strong>Correo:</strong> <span id="patient-correo-display"></span></p>
+      </div>
+
+      <div id="result-card" class="card result-card">
+        <!-- Se llena dinámicamente -->
+      </div>
+
+      <div id="response-breakdown" class="response-breakdown">
+        <!-- Se llena dinámicamente con respuestas positivas y negativas -->
+      </div>
+
+      <div class="card">
+        <h2>Resumen de respuestas</h2>
+        <div id="answers-summary"></div>
+      </div>
+
+      <div id="privacy-notice" class="privacy-notice">
+        <div class="privacy-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="privacy-content">
+          <h3>Aviso de Privacidad</h3>
+          <p>
+            En conformidad con el <strong>Art. 3 y Art. 14 de la Ley Federal de Protección
+            de Datos Personales en Posesión de los Particulares</strong>, hacemos de tu
+            conocimiento que <strong>HOSPITAL SAN DIEGO DE ALCALÁ S.A.P.I DE C.V</strong>
+            con domicilio fiscal ubicado en <em>Avenida Nuevo León no. 10, Centro,
+            Hermosillo, Sonora, México</em>, ha designado como
+            <strong>Encargado del tratamiento (uso) de sus datos personales</strong> a:
+            <strong>ARA SOFTWARE DESING, S.A. DE C.V.</strong>, con domicilio en
+            <em>Calle Zacatecas #24, Piso 6 Int. 602, Col. Roma Norte, Alcaldía
+            Cuauhtémoc, C.P. 06700, Ciudad de México</em>.
+          </p>
+
+          <p>
+            El área encargada de dar trámite a su solicitud de revocar el consentimiento
+            al tratamiento de su información personal o para ejercer sus
+            <strong>derechos ARCO</strong> es el Centro de Operaciones de Ara Software Desing,
+            en la misma dirección y al teléfono <strong>(55) 5514-8850</strong>.
+          </p>
+
+          <p>
+            Usted puede conocer nuestro <strong>Aviso de Privacidad integral</strong>
+            solicitándolo a nuestro Centro de Operaciones, al e-mail:
+            <a href="mailto:operaciones@vydp.org">operaciones@vydp.org</a> o bien entrando
+            a nuestra página web:
+            <a href="https://hospitalsandiegodealcala.com/aviso-de-privacidad/"
+               target="_blank" rel="noopener">hospitalsandiegodealcala.com/aviso-de-privacidad/</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-container">
+        <button id="btn-restart" class="btn-secondary">Volver a la encuesta</button>
+        <button id="btn-exit" class="btn-primary">Salir</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER HSDA -->
+  <footer class="site-footer">
+    <p>Hospital San Diego de Alcalá · Endo 360 · Angiología y Cirugía Vascular</p>
+  </footer>
+
+  <!-- ===================== PANTALLA DE DESPEDIDA ===================== -->
+  <section id="goodbye" class="section">
+    <div class="container goodbye-container">
+      <div class="goodbye-icon">✓</div>
+      <h1 class="goodbye-title">¡Gracias por su participación!</h1>
+      <p class="goodbye-message">
+        Sus datos han sido registrados de manera segura. Si usted resultó candidato
+        para una prueba vascular, nuestros especialistas se pondrán en contacto
+        con usted a la brevedad.
+      </p>
+      <p class="goodbye-submessage">
+        Puede cerrar esta ventana de forma segura.
+      </p>
+      <button id="btn-close-tab" class="btn-secondary">Cerrar ventana</button>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
