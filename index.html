@@ -118,55 +118,12 @@
     </div>
   </section>
 
-  <!-- ===================== SECCIÓN 3: CUESTIONARIO ===================== -->
-  <section id="quiz" class="section">
+  <!-- ===================== SECCIÓN 3: CONSENTIMIENTO ===================== -->
+  <section id="consent" class="section">
     <div class="container">
-      <h1>Cuestionario de IVC</h1>
-      <p class="instructions">Ponga una Palomita "Sí" o "No".</p>
+      <h1>Aviso de Privacidad</h1>
 
-      <div id="progress-bar-container">
-        <div id="progress-bar"></div>
-      </div>
-      <p id="progress-text">Pregunta 1 de 8</p>
-
-      <div id="question-container">
-        <!-- Se llena dinámicamente -->
-      </div>
-
-      <div class="nav-buttons">
-        <button id="btn-prev" class="btn-secondary" disabled>Anterior</button>
-        <button id="btn-next" class="btn-primary">Siguiente</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SECCIÓN 4: RESULTADO ===================== -->
-  <section id="result" class="section">
-    <div class="container">
-      <h1>Resultado</h1>
-
-      <div class="patient-info">
-        <p><strong>Paciente:</strong> <span id="patient-name-display"></span></p>
-        <p><strong>Fecha:</strong> <span id="patient-date-display"></span></p>
-        <p><strong>Empresa:</strong> <span id="patient-empresa-display"></span></p>
-        <p><strong>Teléfono:</strong> <span id="patient-telefono-display"></span></p>
-        <p><strong>Correo:</strong> <span id="patient-correo-display"></span></p>
-      </div>
-
-      <div id="result-card" class="card result-card">
-        <!-- Se llena dinámicamente -->
-      </div>
-
-      <div id="response-breakdown" class="response-breakdown">
-        <!-- Se llena dinámicamente con respuestas positivas y negativas -->
-      </div>
-
-      <div class="card">
-        <h2>Resumen de respuestas</h2>
-        <div id="answers-summary"></div>
-      </div>
-
-      <div id="privacy-notice" class="privacy-notice">
+      <div class="privacy-notice">
         <div class="privacy-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -174,7 +131,6 @@
           </svg>
         </div>
         <div class="privacy-content">
-          <h3>Aviso de Privacidad</h3>
           <p>
             En conformidad con el <strong>Art. 3 y Art. 14 de la Ley Federal de Protección
             de Datos Personales en Posesión de los Particulares</strong>, hacemos de tu
@@ -203,6 +159,67 @@
                target="_blank" rel="noopener">hospitalsandiegodealcala.com/aviso-de-privacidad/</a>
           </p>
         </div>
+      </div>
+
+      <div class="consent-check">
+        <input type="checkbox" id="privacy-consent">
+        <label for="privacy-consent">He leído el Aviso de Privacidad y autorizo el tratamiento de mis datos.</label>
+      </div>
+
+      <div class="nav-buttons">
+        <button id="btn-back-consent" class="btn-secondary">Regresar</button>
+        <button id="btn-exit-consent" class="btn-secondary">Salir sin enviar</button>
+        <button id="btn-consent-continue" class="btn-primary" disabled>Comenzar cuestionario</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECCIÓN 4: CUESTIONARIO ===================== -->
+  <section id="quiz" class="section">
+    <div class="container">
+      <h1>Cuestionario de IVC</h1>
+      <p class="instructions">Ponga una Palomita "Sí" o "No".</p>
+
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <p id="progress-text">Pregunta 1 de 8</p>
+
+      <div id="question-container">
+        <!-- Se llena dinámicamente -->
+      </div>
+
+      <div class="nav-buttons">
+        <button id="btn-prev" class="btn-secondary" disabled>Anterior</button>
+        <button id="btn-next" class="btn-primary">Siguiente</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECCIÓN 5: RESULTADO ===================== -->
+  <section id="result" class="section">
+    <div class="container">
+      <h1>Resultado</h1>
+
+      <div class="patient-info">
+        <p><strong>Paciente:</strong> <span id="patient-name-display"></span></p>
+        <p><strong>Fecha:</strong> <span id="patient-date-display"></span></p>
+        <p><strong>Empresa:</strong> <span id="patient-empresa-display"></span></p>
+        <p><strong>Teléfono:</strong> <span id="patient-telefono-display"></span></p>
+        <p><strong>Correo:</strong> <span id="patient-correo-display"></span></p>
+      </div>
+
+      <div id="result-card" class="card result-card">
+        <!-- Se llena dinámicamente -->
+      </div>
+
+      <div id="response-breakdown" class="response-breakdown">
+        <!-- Se llena dinámicamente con respuestas positivas y negativas -->
+      </div>
+
+      <div class="card">
+        <h2>Resumen de respuestas</h2>
+        <div id="answers-summary"></div>
       </div>
 
       <div class="cta-container">

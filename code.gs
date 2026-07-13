@@ -49,6 +49,10 @@ function doGet(e) {
       throw new Error('Faltan campos requeridos: paciente y resultado');
     }
 
+    if (params.consentimiento !== 'si') {
+      throw new Error('Se requiere consentimiento de privacidad para guardar los datos');
+    }
+
     // Insertar fila
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
     if (!sheet) {

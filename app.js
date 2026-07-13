@@ -32,6 +32,7 @@ let patientEmpresa = "";
 let patientTelefono = "";
 let patientCorreo = "";
 let autoAdvanceTimer = null;
+let hasPrivacyConsent = false;
 
 // ===================== NAVEGACIÓN =====================
 function showSection(id) {
@@ -80,8 +81,32 @@ document.getElementById('btn-start-test').addEventListener('click', () => {
 
   currentQuestion = 0;
   answers = new Array(formData.preguntas.length).fill(null);
+  hasPrivacyConsent = false;
+  document.getElementById('privacy-consent').checked = false;
+  document.getElementById('btn-consent-continue').disabled = true;
+  showSection('consent');
+});
+
+document.getElementById('privacy-consent').addEventListener('change', event => {
+  document.getElementById('btn-consent-continue').disabled = !event.target.checked;
+});
+
+document.getElementById('btn-consent-continue').addEventListener('click', () => {
+  if (!document.getElementById('privacy-consent').checked) return;
+
+  hasPrivacyConsent = true;
   showSection('quiz');
   renderQuestion();
+});
+
+document.getElementById('btn-back-consent').addEventListener('click', () => {
+  clearPatientData();
+  showSection('patient');
+});
+
+document.getElementById('btn-exit-consent').addEventListener('click', () => {
+  clearPatientData();
+  window.location.href = INSTAGRAM_URL;
 });
 
 // ===================== CUESTIONARIO =====================
@@ -248,6 +273,11 @@ function showResult() {
 
 // ===================== ENVIAR A GOOGLE SHEET =====================
 function sendToSheet(isCandidate) {
+  if (!hasPrivacyConsent) {
+    console.warn('Consentimiento de privacidad no otorgado. Datos no enviados.');
+    return;
+  }
+
   if (!SHEET_ENDPOINT) {
     console.warn('SHEET_ENDPOINT no configurado. Datos no enviados.');
     return;
@@ -261,7 +291,8 @@ function sendToSheet(isCandidate) {
     empresa: patientEmpresa,
     telefono: patientTelefono,
     correo: patientCorreo,
-    resultado: isCandidate ? 'Candidato' : 'No candidato'
+    resultado: isCandidate ? 'Candidato' : 'No candidato',
+    consentimiento: hasPrivacyConsent ? 'si' : ''
   });
 
   const url = SHEET_ENDPOINT + '?' + params.toString();
@@ -282,11 +313,11 @@ function sendToSheet(isCandidate) {
 }
 
 // ===================== REINICIAR (volver a la encuesta) =====================
-document.getElementById('btn-restart').addEventListener('click', () => {
+function clearPatientData() {
   if (autoAdvanceTimer) {
     clearTimeout(autoAdvanceTimer);
-    autoAdvanceTimer = null;
   }
+  autoAdvanceTimer = null;
   currentQuestion = 0;
   answers = new Array(formData.preguntas.length).fill(null);
   patientName = '';
@@ -294,11 +325,18 @@ document.getElementById('btn-restart').addEventListener('click', () => {
   patientEmpresa = '';
   patientTelefono = '';
   patientCorreo = '';
+  hasPrivacyConsent = false;
   document.getElementById('nombre').value = '';
   document.getElementById('fecha').value = '';
   document.getElementById('empresa').value = '';
   document.getElementById('telefono').value = '';
   document.getElementById('correo').value = '';
+  document.getElementById('privacy-consent').checked = false;
+  document.getElementById('btn-consent-continue').disabled = true;
+}
+
+document.getElementById('btn-restart').addEventListener('click', () => {
+  clearPatientData();
   showSection('info');
 });
 
@@ -306,20 +344,6 @@ document.getElementById('btn-restart').addEventListener('click', () => {
 const INSTAGRAM_URL = 'https://www.instagram.com/hospitalsandiegodealcala/?hl=es';
 
 document.getElementById('btn-exit').addEventListener('click', () => {
-  // Redirigir directamente a Instagram del Hospital San Diego de Alcalá
+  clearPatientData();
   window.location.href = INSTAGRAM_URL;
-});
-
-// ===================== CERRAR PESTAÑA =====================
-document.getElementById('btn-close-tab').addEventListener('click', () => {
-  window.close();
-  // Fallback: si window.close no funciona (no abierta por script),
-  // el usuario verá el botón y la nota para cerrar manualmente
-  setTimeout(() => {
-    document.querySelector('.goodbye-container').innerHTML += `
-      <p class="goodbye-fallback">
-        Si la ventana no se cerró, use Ctrl+W (Cmd+W en Mac) o cierre la pestaña manualmente.
-      </p>
-    `;
-  }, 200);
 });

@@ -698,6 +698,38 @@ input[type="email"]::placeholder {
   opacity: 1;
 }
 
+.consent-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem;
+  border: 1.5px solid rgba(165,183,207,0.5);
+  border-radius: var(--radio-sm);
+  background: var(--blanco);
+}
+
+.consent-check input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.1rem 0 0;
+  flex: 0 0 auto;
+}
+
+.consent-check label {
+  margin: 0;
+  color: var(--azul-oscuro);
+  font-size: 0.88rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.consent-check:focus-within {
+  outline: 3px solid rgba(60,87,117,0.35);
+  outline-offset: 3px;
+}
+
 /* ===================== QUIZ ===================== */
 .quiz-header {
   margin-bottom: 1.5rem;
