@@ -1473,3 +1473,12 @@ input[type="email"]::placeholder {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Aviso de Privacidad Integral (texto oficial F-25): recuadro con desplazamiento para no alargar la pantalla. */
+.privacy-content.aviso-integral { max-height: 55vh; overflow-y: auto; padding-right: 0.75rem; overscroll-behavior: contain; }
+.privacy-content.aviso-integral h3 { margin-top: 1.25rem; }
+.privacy-content.aviso-integral h3:first-child { margin-top: 0; }
+.privacy-content.aviso-integral h4 { font-weight: 800; font-size: 0.8rem; color: var(--azul-medio); margin: 0.9rem 0 0.4rem; }
+.privacy-content.aviso-integral ul, .privacy-content.aviso-integral ol { margin: 0 0 0.85rem 1.25rem; font-size: 0.82rem; line-height: 1.6; color: var(--azul-oscuro); }
+.privacy-content.aviso-integral li { margin-bottom: 0.3rem; }
+.privacy-content.aviso-integral ul ul, .privacy-content.aviso-integral ol ul { margin-top: 0.4rem; }
